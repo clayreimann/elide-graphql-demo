@@ -9,7 +9,7 @@ import com.yahoo.elide.annotation.Include;
 
 @Entity
 @Table(name = "address")
-@Include(rootLevel = false)
+@Include(rootLevel = true)
 public class Address {
 	
 	@Id
