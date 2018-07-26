@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.axelor.repository.beans.Contact;
 import com.yahoo.elide.annotation.Include;
 
 @Entity
@@ -19,7 +20,7 @@ public class SaleOrder {
 	public Long id;
 	
 	@ManyToOne
-	public Customer customer;
+	public Contact customer;
 	
 	private String name;
 	

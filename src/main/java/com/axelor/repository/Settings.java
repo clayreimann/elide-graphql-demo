@@ -10,16 +10,7 @@ public class Settings implements ElideStandaloneSettings {
     public String getModelPackageName() {
 //        return SaleOrder.class.getPackage().getName();
     	return "com.axelor.sale";
-//    	return "com.axelor.repository";
+//    	return "com.axelor.repository.beans";
     }
 
-//    @Override
-//    public String getGraphQLApiPathSepc() {
-//        return "/graphql";
-//    }
-//
-//    @Override
-//    public boolean enableGraphQL() {
-//        return true;
-//    }
 }

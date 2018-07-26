@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.yahoo.elide.annotation.Include;
 
@@ -16,9 +19,9 @@ import com.yahoo.elide.annotation.Include;
 @Include(rootLevel = true)
 public class Contact {
 
-	@Id
-	public Long id;
+	private Long id;
 
+	@NotNull
 	private String firstName;
 
 	private String lastName;
@@ -27,14 +30,13 @@ public class Contact {
 
 	private String phone;
 
-	@OneToMany(mappedBy = "contact")
-	public List<Address> addresses;
+	private List<Address> addresses;
 
 	public Contact() {
 
 	}
 
-	public Contact(Long id, String firstName, String lastName, String email, String phone) {
+	public Contact(long id, String firstName, String lastName, String email, String phone) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -43,18 +45,21 @@ public class Contact {
 		this.phone = phone;
 	}
 
-	 public Long getId() {
-	 return id;
-	 }
-	
-	 public void setId(Long id) {
-	 this.id = id;
-	 }
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CONTACT_SEQ")
+	@SequenceGenerator(name = "CONTACT_SEQ", sequenceName = "CONTACT_SEQ", allocationSize = 1)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getFirstName() {
 		return firstName;
 	}
-
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -83,12 +88,13 @@ public class Contact {
 		this.phone = phone;
 	}
 
-//	public List<Address> getAddresses() {
-//		return addresses;
-//	}
-//
-//	public void setAddresses(List<Address> addresses) {
-//		this.addresses = addresses;
-//	}
+	@OneToMany(mappedBy = "contact")
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
 
 }

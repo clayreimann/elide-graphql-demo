@@ -13,7 +13,7 @@ import com.yahoo.elide.annotation.Include;
 
 @Entity
 @Table(name = "order_line")
-@Include(rootLevel = false)
+@Include(rootLevel = true)
 public class OrderLine {
 	
 	@Id
