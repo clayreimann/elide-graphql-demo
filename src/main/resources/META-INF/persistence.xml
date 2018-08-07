@@ -18,7 +18,7 @@
                      value="org.postgresql.Driver" />
 
            <property name="javax.persistence.jdbc.url"
-                     value="jdbc:postgresql://localhost:5432/elide-graphql-demo1" />
+                     value="jdbc:postgresql://localhost:5432/elide-graphql-demo" />
 
            <property name="javax.persistence.jdbc.user"
                      value="axelor" />

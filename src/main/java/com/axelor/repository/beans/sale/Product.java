@@ -1,16 +1,17 @@
-package com.axelor.sale;
+package com.axelor.repository.beans.sale;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.yahoo.elide.annotation.Include;
 
 @Entity
-@Table(name = "product_category")
+@Table(name = "product")
 @Include(rootLevel = false)
-public class ProductCategory {
-
+public class Product {
+	
 	@Id
 	public Long id;
 	
@@ -18,16 +19,22 @@ public class ProductCategory {
 	
 	private String name;
 	
-	public ProductCategory() {
+	private String color;
+	
+	@ManyToOne
+	public ProductCategory category;
+	
+	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductCategory(Long id, String code, String name) {
+	public Product(Long id, String code, String name, String color) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.name = name;
+		this.color = color;
 	}
 
 	public Long getId() {
@@ -53,5 +60,13 @@ public class ProductCategory {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 }

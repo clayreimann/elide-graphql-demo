@@ -1,4 +1,4 @@
-package com.axelor.sale;
+package com.axelor.repository.beans.sale;
 
 import java.math.BigDecimal;
 
